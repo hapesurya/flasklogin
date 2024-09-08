@@ -1,6 +1,7 @@
 """Kita akan membuat halaman routes"""
 import os
 import secrets
+from datetime import datetime
 from PIL import Image
 from flask import render_template, url_for, flash, redirect, request
 from applogin import app, db, bcrypt
@@ -83,5 +84,4 @@ def account():
         form.username.data = current_user.username
         form.email.data = current_user.email
     image_file = url_for('static', filename='profile_pics/' + current_user.image_file)
-    return render_template('applogin/account.html', title='Account',
-                           image_file=image_file, form=form)
+    return render_template('applogin/account.html', title='Account', image_file=image_file, form=form)
